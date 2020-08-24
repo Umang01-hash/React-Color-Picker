@@ -41,6 +41,7 @@ class PaletteMetaForm extends Component {
       emoji: emoji.native
     };
     this.props.handleSubmit(newPalette);
+    this.setState({ stage: "" });
   }
   handleClickOpen = () => {
     this.setState({ open: true });
@@ -52,7 +53,7 @@ class PaletteMetaForm extends Component {
 
   render() {
     const { newPaletteName } = this.state;
-    const { hideForm, handleSubmit } = this.props;
+    const { hideForm} = this.props;
 
     return (
       <div>

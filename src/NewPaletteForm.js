@@ -7,12 +7,12 @@ import Drawer from "@material-ui/core/Drawer";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
-import ArrowLeftRoundedIcon from '@material-ui/icons/ArrowLeftRounded';
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import Button from "@material-ui/core/Button";
 import DraggableColorList from "./DraggableColorList";
 import { arrayMove } from "react-sortable-hoc";
 import styles from "./styles/NewPaletteFormStyles";
-
+import seedColors from "./seedColors";
 
 class NewPaletteForm extends Component {
   static defaultProps = {
@@ -22,7 +22,7 @@ class NewPaletteForm extends Component {
     super(props);
     this.state = {
       open: true,
-      colors: this.props.palettes[0].colors
+      colors: seedColors[0].colors
     };
     this.addNewColor = this.addNewColor.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -55,7 +55,6 @@ class NewPaletteForm extends Component {
     this.setState({ colors: [] });
   }
   addRandomColor() {
-    //pick random color from existing palettes
     const allColors = this.props.palettes.map(p => p.colors).flat();
     var rand = Math.floor(Math.random() * allColors.length);
     const randomColor = allColors[rand];
@@ -102,7 +101,7 @@ class NewPaletteForm extends Component {
         >
           <div className={classes.drawerHeader}>
             <IconButton onClick={this.handleDrawerClose}>
-              <ArrowLeftRoundedIcon style={{ fontSize: 80 }}  color="primary" />
+              <ChevronLeftIcon />
             </IconButton>
           </div>
           <Divider />
@@ -147,6 +146,7 @@ class NewPaletteForm extends Component {
             removeColor={this.removeColor}
             axis='xy'
             onSortEnd={this.onSortEnd}
+            distance={20}
           />
         </main>
       </div>
