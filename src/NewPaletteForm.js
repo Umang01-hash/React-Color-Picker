@@ -7,7 +7,7 @@ import Drawer from "@material-ui/core/Drawer";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import ArrowLeftRoundedIcon from '@material-ui/icons/ArrowLeftRounded';
 import Button from "@material-ui/core/Button";
 import DraggableColorList from "./DraggableColorList";
 import { arrayMove } from "react-sortable-hoc";
@@ -102,7 +102,7 @@ class NewPaletteForm extends Component {
         >
           <div className={classes.drawerHeader}>
             <IconButton onClick={this.handleDrawerClose}>
-              <ChevronLeftIcon />
+              <ArrowLeftRoundedIcon style={{ fontSize: 80 }}  color="primary" />
             </IconButton>
           </div>
           <Divider />
